@@ -1,0 +1,16 @@
+{
+  "name": "@micro-admin",
+  "private": true,
+  "version": "0.1.0",
+  "description": "基于iframe的微前端中后台快速开发系统模板",
+  "author": {
+    "name": "SpuerMomonga",
+    "email": "supermomonga@163.com",
+    "url": "https://github.com/SpuerMomonga"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpuerMomonga/micro-admin.git"
+  }
+}
