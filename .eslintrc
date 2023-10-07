@@ -136,6 +136,7 @@
   "overrides": [
     {
       "files": [
+        ".*rc",
         "*.json",
         "*.json5",
         "*.jsonc"

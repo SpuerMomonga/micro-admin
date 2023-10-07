@@ -11,7 +11,7 @@
     "*.env": "$(capture).env.*",
     "CHANGELOG.md": "CHANGELOG*",
     "package.json": "pnpm-lock.yaml,pnpm-workspace.yaml,LICENSE,.gitattributes,.gitignore,.gitpod.yml,CNAME,README*,.npmrc,.browserslistrc",
-    ".eslintrc": ".eslintignore,.prettierignore,.stylelintignore,.commitlintrc.js,.prettierrc,.stylelintrc"
+    ".eslintrc": ".eslintignore,.prettierignore,.stylelintignore,.commitlintrc.js,.prettierrc,.stylelintrc.js,.lintstagedrc"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
   "editor.formatOnSave": true,

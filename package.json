@@ -14,12 +14,15 @@
     "url": "https://github.com/SpuerMomonga"
   },
   "scripts": {
-    "prepare": "husky install",
     "format": "prettier --config .prettierrc '.' --write",
+    "preinstall": "npx only-allow pnpm",
     "lint": "eslint ./ --ext .ts,.js,.tsx,.json,.jsonc,.json5,.vue --max-warnings=0",
-    "lint:fix": "eslint ./ --ext .ts,.js,.tsx,.json,.jsonc,.json5,.vue --fix"
+    "lint:fix": "eslint ./ --ext .ts,.js,.tsx,.json,.jsonc,.json5,.vue --fix",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.7.2",
+    "@commitlint/config-conventional": "^17.7.0",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
     "@typescript-eslint/parser": "^6.7.4",
     "@vue/typescript": "^1.8.15",
@@ -32,9 +35,21 @@
     "eslint-plugin-vue": "^9.17.0",
     "husky": "^8.0.3",
     "jsonc-eslint-parser": "^2.3.0",
+    "lint-staged": "^14.0.1",
+    "postcss": "^8.4.31",
+    "postcss-html": "^1.5.0",
+    "postcss-scss": "^4.0.9",
     "prettier": "^3.0.3",
     "prettier-plugin-organize-imports": "^3.2.3",
     "prettier-plugin-packagejson": "^2.4.6",
+    "stylelint": "^15.10.3",
+    "stylelint-config-recommended": "^13.0.0",
+    "stylelint-config-recommended-scss": "^13.0.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-standard-scss": "^11.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-prettier": "^4.0.2",
     "vue-eslint-parser": "^9.3.1"
   }
 }
