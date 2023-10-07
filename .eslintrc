@@ -1,0 +1,158 @@
+{
+  // 该配置项主要用于指示此.eslintrc文件是Eslint在项目内使用的根级别文件，并且 ESLint 不应在该目录之外搜索配置文件
+  "root": true,
+  // 该配置项告诉eslint我们拓展了哪些指定的配置集，其中
+  // eslint:recommended ：该配置集是 ESLint 内置的“推荐”，它打开一组小的、合理的规则，用于检查众所周知的最佳实践
+  // vue/vue3-recommended：该配置集是vue3的推荐，启用了特定于vue的规则
+  // jsonc/recommended-with-jsonc：该配置集启用了特定于json文件的规则
+  // @typescript-eslint/recommended：该配置集是typescript-eslint的推荐，它与eslint:recommended相似，但它启用了特定于ts的规则
+  // @typescript-eslint/eslint-recommended：该配置集禁用 eslint:recommended 配置集中已经由 typeScript 处理的规则，防止eslint和typescript之间的冲突。
+  // prettier: 关闭所有可能干扰 Prettier 规则的 ESLint 规则，确保将其放在最后，这样它有机会覆盖其他配置集
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:jsonc/recommended-with-jsonc",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  // 配置解析项目的规则 vue文件解析器
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": 2020, // 想要使用的 ECMAScript 版本
+    "sourceType": "module", // 设置使用 ECMAScript 模块
+    "ecmaFeatures": {
+      "jsx": true // 启用 jsx
+    },
+    "project": "./tsconfig.*?.json", // 选项允许你提供项目的tsconfig.json的路径
+    "createDefaultProgram": true, // 提供更加准确的ts检查
+    "extraFileExtensions": [
+      ".vue"
+    ] // 提供一个或多个额外的文件扩展名
+  },
+  // 该配置项指示要加载的插件
+  // 下面插件分别对应各个包的规则集
+  "plugins": [
+    "vue",
+    "@typescript-eslint",
+    "import",
+    "simple-import-sort",
+    "prettier"
+  ],
+  // 配置规则
+  "rules": {
+    "no-console": "warn",
+    // 要求使用全等
+    "eqeqeq": "error",
+    "prettier/prettier": "error",
+    // 关闭这两个 ESLint 核心规则，这两个规则和prettier插件一起使用会出现问题，具体可参阅
+    // https://github.com/prettier/eslint-plugin-prettier/blob/master/README.md#arrow-body-style-and-prefer-arrow-callback-issue
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    // "@typescript-eslint/no-explicit-any": "off",
+    "import/no-unresolved": "off",
+    "object-shorthand": [
+      "error",
+      "always",
+      {
+        "ignoreConstructors": false,
+        "avoidQuotes": true
+      }
+    ],
+    "@typescript-eslint/ban-ts-comment": [
+      "error",
+      {
+        "ts-expect-error": "allow-with-description",
+        "ts-ignore": "allow-with-description",
+        "ts-nocheck": "allow-with-description",
+        "ts-check": false
+      }
+    ],
+    /**
+     * 【强制】关键字前后有一个空格
+     * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/keyword-spacing.md
+     */
+    "keyword-spacing": "off",
+    "@typescript-eslint/keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true,
+        "overrides": {
+          "return": {
+            "after": true
+          },
+          "throw": {
+            "after": true
+          },
+          "case": {
+            "after": true
+          }
+        }
+      }
+    ],
+    /**
+     * 禁止出现空函数，普通函数（非 async/await/generator）、箭头函数、类上的方法除外
+     * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-empty-function.md
+     */
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": [
+      "error",
+      {
+        "allow": [
+          "arrowFunctions",
+          "functions",
+          "methods"
+        ]
+      }
+    ],
+    /**
+     * 优先使用 interface 而不是 type 定义对象类型
+     * @link https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/consistent-type-definitions.md
+     */
+    "@typescript-eslint/consistent-type-definitions": [
+      "warn",
+      "interface"
+    ],
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "@typescript-eslint/no-var-requires": "error",
+    "@typescript-eslint/ban-types": "error",
+    "vue/attributes-order": "error",
+    "vue/require-default-prop": "error",
+    "vue/require-explicit-emits": "error",
+    "vue/prefer-import-from-vue": "error",
+    "vue/attribute-hyphenation": "error",
+    "vue/multiline-html-element-content-newline": "error",
+    "vue/html-closing-bracket-newline": "error",
+    "vue/one-component-per-file": "error",
+    "vue/custom-event-name-casing": "error"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.json",
+        "*.json5",
+        "*.jsonc"
+      ],
+      "parser": "jsonc-eslint-parser"
+    },
+    {
+      "files": [
+        "package.json"
+      ],
+      "parser": "jsonc-eslint-parser",
+      "rules": {
+        "jsonc/sort-keys": "off"
+      }
+    }
+  ],
+  "globals": {
+    "defineOptions": "readonly"
+  }
+}

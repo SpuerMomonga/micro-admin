@@ -1,0 +1,8 @@
+node_modules
+dist
+*.md
+.husky
+.vscode
+.github
+pnpm-lock.yaml
+.npmrc

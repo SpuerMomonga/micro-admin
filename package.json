@@ -1,16 +1,40 @@
 {
   "name": "@micro-admin",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
   "description": "基于iframe的微前端中后台快速开发系统模板",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpuerMomonga/micro-admin.git"
+  },
+  "license": "MIT",
   "author": {
     "name": "SpuerMomonga",
     "email": "supermomonga@163.com",
     "url": "https://github.com/SpuerMomonga"
   },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SpuerMomonga/micro-admin.git"
+  "scripts": {
+    "prepare": "husky install",
+    "format": "prettier --config .prettierrc '.' --write",
+    "lint": "eslint ./ --ext .ts,.js,.tsx,.json,.jsonc,.json5,.vue --max-warnings=0",
+    "lint:fix": "eslint ./ --ext .ts,.js,.tsx,.json,.jsonc,.json5,.vue --fix"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.7.4",
+    "@typescript-eslint/parser": "^6.7.4",
+    "@vue/typescript": "^1.8.15",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsonc": "^2.9.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "husky": "^8.0.3",
+    "jsonc-eslint-parser": "^2.3.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-organize-imports": "^3.2.3",
+    "prettier-plugin-packagejson": "^2.4.6",
+    "vue-eslint-parser": "^9.3.1"
   }
 }
